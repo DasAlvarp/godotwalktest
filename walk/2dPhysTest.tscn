@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Debug.gd" type="Script" id=1]
 [ext_resource path="res://DebugMenu.gd" type="Script" id=2]
 [ext_resource path="res://maxresdefault.tex" type="Texture" id=3]
-[ext_resource path="res://stick1.tex" type="Texture" id=4]
-[ext_resource path="res://CharacterPhysics.gd" type="Script" id=5]
+[ext_resource path="res://CharacterPhysics.gd" type="Script" id=4]
+[ext_resource path="res://stick1.tex" type="Texture" id=5]
+[ext_resource path="res://Hurtbox.tex" type="Texture" id=6]
+[ext_resource path="res://phyHurtbox.tex" type="Texture" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,16 +26,36 @@ script/script = ExtResource( 2 )
 
 [node name="Floor" type="Sprite" parent="Control"]
 
-transform/pos = Vector2( 678.879, 505.53 )
+transform/pos = Vector2( -413.421, 419.122 )
 transform/scale = Vector2( 1.19626, 0.248737 )
 texture = ExtResource( 3 )
+centered = false
 
-[node name="Char" type="Sprite" parent="Control"]
+[node name="Char" type="Node2D" parent="Control"]
 
 transform/pos = Vector2( 122.525, 322.858 )
-transform/scale = Vector2( 0.155191, 0.155191 )
-texture = ExtResource( 4 )
-script/script = ExtResource( 5 )
+script/script = ExtResource( 4 )
+
+[node name="Def" type="Sprite" parent="Control/Char"]
+
+transform/scale = Vector2( 0.162673, 0.162673 )
+texture = ExtResource( 5 )
+
+[node name="Hurtbox" type="Node2D" parent="Control/Char/Def"]
+
+[node name="ChildHurt" type="Sprite" parent="Control/Char/Def/Hurtbox"]
+
+material/use_parent = true
+transform/pos = Vector2( -119.072, 82.7561 )
+transform/scale = Vector2( 6.46759, 15.434 )
+texture = ExtResource( 6 )
+
+[node name="GrabHurtbox" type="Sprite" parent="Control/Char/Def"]
+
+texture = ExtResource( 7 )
+offset = Vector2( -100, 100 )
+region = true
+region_rect = Rect2( 100, 100, 500, 1000 )
 
 [node name="PosInfo" type="Label" parent="Control"]
 
@@ -41,10 +63,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 1.0
-margin/top = 6.0
-margin/right = 309.0
-margin/bottom = 422.0
+margin/left = 4.0
+margin/top = 11.0
+margin/right = 312.0
+margin/bottom = 427.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

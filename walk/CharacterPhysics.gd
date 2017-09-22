@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -6,7 +6,6 @@ extends Sprite
 const MAX_SPEED = 100
 const WALK_SPEED = 10
 const FRICTION = 1
-const FLOORY = 322
 const WEIGHT = 250.0
 
 var vertVelocity = 0.0
@@ -18,11 +17,19 @@ var debug = true
 var state = 0
 var statelock = 0
 
+var phyBox
+var ground
+
+var height
+
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	get_node(".").set_pos(Vector2(100, FLOORY))
+	phyBox = get_node("Def/GrabHurtbox")
+	ground = get_node("../Floor")
+	height = phyBox.get_region_rect().size.y * get_node("Def").get_scale().y
+	get_node(".").set_pos(Vector2(100, ground.get_pos().y - height / 2))
 	set_process(true)
 
 func _process(delta):
@@ -46,10 +53,10 @@ func _process(delta):
 		pos.y -= vertVelocity / 60
 		acceleration += WEIGHT / 60
 		vertVelocity -= acceleration * acceleration / 60
-		if(pos.y > FLOORY):
+		if(pos.y + height / 2 > ground.get_pos().y):
 			state = 0
 			acceleration = 0.0
 			vertVelocity = 0.0
-			pos.y = FLOORY
+			pos.y = ground.get_pos().y - height / 2
 	
 	get_node(".").set_pos(pos)
