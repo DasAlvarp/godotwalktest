@@ -28,7 +28,7 @@ func _ready():
 	# Initialization here
 	phyBox = get_node("Def/GrabHurtbox")
 	ground = get_node("../Floor")
-	height = phyBox.get_region_rect().size.y * get_node("Def").get_scale().y
+	height = (phyBox.get_region_rect().size.y + phyBox.get_offset().y + phyBox.get_region_rect().pos.y) * get_node("Def").get_scale().y
 	get_node(".").set_pos(Vector2(100, ground.get_pos().y - height / 2))
 	set_process(true)
 

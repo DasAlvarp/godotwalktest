@@ -50,6 +50,15 @@ transform/pos = Vector2( -119.072, 82.7561 )
 transform/scale = Vector2( 6.46759, 15.434 )
 texture = ExtResource( 6 )
 
+[node name="Hurtbox1" type="Node2D" parent="Control/Char/Def"]
+
+[node name="ChildHurt" type="Sprite" parent="Control/Char/Def/Hurtbox1"]
+
+material/use_parent = true
+transform/pos = Vector2( -119.072, 82.7561 )
+transform/scale = Vector2( 6.46759, 15.434 )
+texture = ExtResource( 6 )
+
 [node name="GrabHurtbox" type="Sprite" parent="Control/Char/Def"]
 
 texture = ExtResource( 7 )
