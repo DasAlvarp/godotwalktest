@@ -1,8 +1,5 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 const MAX_SPEED = 100
 const WALK_SPEED = 10
 const FRICTION = 1
@@ -22,10 +19,8 @@ var ground
 var sprite
 var height
 
-
+# Initialization here
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	phyBox = get_node("Def/GrabHurtbox")
 	ground = get_node("../Floor")
 	sprite = get_node("Def")
@@ -68,7 +63,6 @@ func _process(delta):
 			statelock = 2
 		elif(state == 4):
 			state = 0
-			
 	
 	if(state == 0):
 		if(horVelocity > 0):
