@@ -26,8 +26,8 @@ script/script = ExtResource( 2 )
 
 [node name="Floor" type="Sprite" parent="Control"]
 
-transform/pos = Vector2( -413.421, 419.122 )
-transform/scale = Vector2( 1.19626, 0.248737 )
+transform/pos = Vector2( -407.391, 527.968 )
+transform/scale = Vector2( 1.19626, 0.163295 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -38,6 +38,7 @@ script/script = ExtResource( 4 )
 
 [node name="Def" type="Sprite" parent="Control/Char"]
 
+editor/display_folded = true
 transform/scale = Vector2( 0.162673, 0.162673 )
 texture = ExtResource( 5 )
 
