@@ -57,7 +57,7 @@ func _process(delta):
 			if(Input.is_action_pressed("move_jump")):
 				vertVelocity = jumpSpeed
 				state = 1
-			if(Input.is_action_just_pressed("attack_a")):
+			if(Input.is_action_pressed("attack_a")):
 				statelock = 5
 				state = 2
 		elif(state == 2):
