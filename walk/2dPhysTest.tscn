@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Debug.gd" type="Script" id=1]
 [ext_resource path="res://DebugMenu.gd" type="Script" id=2]
 [ext_resource path="res://maxresdefault.tex" type="Texture" id=3]
-[ext_resource path="res://CharacterPhysics.gd" type="Script" id=4]
-[ext_resource path="res://stick1.tex" type="Texture" id=5]
-[ext_resource path="res://Hurtbox.tex" type="Texture" id=6]
-[ext_resource path="res://phyHurtbox.tex" type="Texture" id=7]
+[ext_resource path="res://Char.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
 
@@ -31,41 +28,22 @@ transform/scale = Vector2( 1.19626, 0.163295 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Char" type="Node2D" parent="Control"]
+[node name="Char" parent="Control" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 122.525, 322.858 )
-script/script = ExtResource( 4 )
+editor/display_folded = false
 
-[node name="Def" type="Sprite" parent="Control/Char"]
+[node name="Def" parent="Control/Char"]
 
-editor/display_folded = true
-transform/scale = Vector2( 0.162673, 0.162673 )
-texture = ExtResource( 5 )
+editor/display_folded = false
 
-[node name="Hurtbox" type="Node2D" parent="Control/Char/Def"]
+[node name="Char1" parent="Control" instance=ExtResource( 4 )]
 
-[node name="ChildHurt" type="Sprite" parent="Control/Char/Def/Hurtbox"]
+editor/display_folded = false
+transform/pos = Vector2( 626, 322.858 )
 
-material/use_parent = true
-transform/pos = Vector2( -119.072, 82.7561 )
-transform/scale = Vector2( 6.46759, 15.434 )
-texture = ExtResource( 6 )
+[node name="Def" parent="Control/Char1"]
 
-[node name="Hurtbox1" type="Node2D" parent="Control/Char/Def"]
-
-[node name="ChildHurt" type="Sprite" parent="Control/Char/Def/Hurtbox1"]
-
-material/use_parent = true
-transform/pos = Vector2( -119.072, 82.7561 )
-transform/scale = Vector2( 6.46759, 15.434 )
-texture = ExtResource( 6 )
-
-[node name="GrabHurtbox" type="Sprite" parent="Control/Char/Def"]
-
-texture = ExtResource( 7 )
-offset = Vector2( -100, 100 )
-region = true
-region_rect = Rect2( 100, 100, 500, 1000 )
+editor/display_folded = false
 
 [node name="PosInfo" type="Label" parent="Control"]
 
@@ -73,12 +51,14 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 4.0
-margin/top = 11.0
-margin/right = 312.0
-margin/bottom = 427.0
+margin/left = 62.0
+margin/top = 3.0
+margin/right = 370.0
+margin/bottom = 419.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 
+[editable path="Control/Char"]
+[editable path="Control/Char1"]

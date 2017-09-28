@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://CharacterPhysics.gd" type="Script" id=1]
+[ext_resource path="res://stick1.tex" type="Texture" id=2]
+[ext_resource path="res://Hurtbox.tex" type="Texture" id=3]
+[ext_resource path="res://phyHurtbox.tex" type="Texture" id=4]
+
+[node name="Char" type="Node2D"]
+
+editor/display_folded = true
+transform/pos = Vector2( 122.525, 322.858 )
+script/script = ExtResource( 1 )
+
+[node name="Def" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/scale = Vector2( 0.162673, 0.162673 )
+texture = ExtResource( 2 )
+
+[node name="Hurtbox" type="Node2D" parent="Def"]
+
+[node name="ChildHurt" type="Sprite" parent="Def/Hurtbox"]
+
+material/use_parent = true
+transform/pos = Vector2( -119.072, 82.7561 )
+transform/scale = Vector2( 6.46759, 15.434 )
+texture = ExtResource( 3 )
+
+[node name="Hurtbox1" type="Node2D" parent="Def"]
+
+[node name="ChildHurt" type="Sprite" parent="Def/Hurtbox1"]
+
+material/use_parent = true
+transform/pos = Vector2( -119.072, 82.7561 )
+transform/scale = Vector2( 6.46759, 15.434 )
+texture = ExtResource( 3 )
+
+[node name="GrabHurtbox" type="Sprite" parent="Def"]
+
+texture = ExtResource( 4 )
+offset = Vector2( -100, 100 )
+region = true
+region_rect = Rect2( 100, 100, 500, 1000 )
+
+

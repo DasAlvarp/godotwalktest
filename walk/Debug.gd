@@ -11,4 +11,5 @@ func _ready():
 
 func _process(delta):
 	var pos = get_node("Control/Char").get_pos()
-	get_node("Control/PosInfo").set_text(str(pos.x) + ", " + str(pos.y))
+	var pos2 = get_node("Control/Char1").get_pos()
+	get_node("Control/PosInfo").set_text(str(pos.x) + ", " + str(pos.y) + "\n" + str(pos2.x) + ", " + str(pos.y))

@@ -21,11 +21,11 @@ var height
 
 # Initialization here
 func _ready():
-	phyBox = get_node("Def/GrabHurtbox")
+	phyBox = get_node("./Def/GrabHurtbox")
 	ground = get_node("../Floor")
-	sprite = get_node("Def")
-	height = (phyBox.get_region_rect().size.y + phyBox.get_offset().y + phyBox.get_region_rect().pos.y) * get_node("Def").get_scale().y
-	get_node(".").set_pos(Vector2(100, ground.get_pos().y - height / 2))
+	sprite = get_node("./Def")
+	height = (phyBox.get_region_rect().size.y + phyBox.get_offset().y + phyBox.get_region_rect().pos.y) * get_node("./Def").get_scale().y
+	get_node(".").set_pos(Vector2(get_node(".").get_pos().x, ground.get_pos().y - height / 2))
 	set_process(true)
 
 #shitty "do the things" function b/c this is a lazy program to test how I want things to interact
